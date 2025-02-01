@@ -167,7 +167,7 @@ class PipesScreensaver(Screensaver):
         
     def draw(self, prev_buffer, current_buffer):
         if self.num_pipes > 10:
-            self._reset_buffer(current_buffer)
+            self.reset_buffer(current_buffer)
             self.num_pipes = 0
         else:
             for y in range(self.height):
@@ -277,8 +277,7 @@ class ScreensaverManager:
         elif not self.current_screensaver.is_viewport_valid():
             self.reset()
             return
-
-        print(self._buffer1[0])
+            
         self._display.refresh()
         if self._use_secondary_buffer:
             self._display.root_group = self._buffer1.group
